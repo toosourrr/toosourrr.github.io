@@ -29,6 +29,10 @@
     </header>
 
     <div class="hero">
+        <div style="text-align: center; padding: 20px;">
+    <input type="text" id="movieSearch" onkeyup="searchMovies()" placeholder="Search for a movie (e.g. D2, Joker...)" 
+    style="width: 80%; max-width: 600px; padding: 12px 20px; border-radius: 25px; border: 1px solid #e50914; background: #161b22; color: white; font-size: 16px; outline: none;">
+</div>
         <h2>Latest 4K Outlaw Releases</h2>
         <p>Ultra High Speed Streaming | No Account Required</p>
     </div>
@@ -48,6 +52,20 @@
     <footer style="text-align:center; padding:40px; color:#8b949e; font-size:12px;">
         © 2026 Private Archive - Powered by Voe
     </footer>
+    <script>
+function searchMovies() {
+    let input = document.getElementById('movieSearch').value.toLowerCase();
+    let cards = document.getElementsByClassName('movie-card');
 
+    for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].getElementsByClassName('movie-title')[0].innerText.toLowerCase();
+        if (title.includes(input)) {
+            cards[i].style.display = "";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+</script>
 </body>
 </html>
